@@ -9,11 +9,8 @@
 UCLASS(minimalapi)
 class AFPSGameMode : public AGameModeBase
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	AFPSGameMode();
+    AFPSGameMode();
 };
-
-
-

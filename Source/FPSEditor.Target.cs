@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 public class FPSEditorTarget : TargetRules
 {
-	public FPSEditorTarget(TargetInfo Target) : base(Target)
-	{
-		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.Add("FPS");
-	}
+    public FPSEditorTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Editor;
+        DefaultBuildSettings = BuildSettingsVersion.V2;
+        ExtraModuleNames.Add("FPS");
+    }
 }

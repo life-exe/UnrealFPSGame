@@ -8,46 +8,45 @@
 
 class AFPSCharacter;
 
-UCLASS(Blueprintable, BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(Blueprintable, BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class FPS_API UTP_WeaponComponent : public UActorComponent
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	/** Projectile class to spawn */
-	UPROPERTY(EditDefaultsOnly, Category=Projectile)
-	TSubclassOf<class AFPSProjectile> ProjectileClass;
+    /** Projectile class to spawn */
+    UPROPERTY(EditDefaultsOnly, Category = Projectile)
+    TSubclassOf<class AFPSProjectile> ProjectileClass;
 
-	/** Sound to play each time we fire */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
-	USoundBase* FireSound;
-	
-	/** AnimMontage to play each time we fire */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-	UAnimMontage* FireAnimation;
+    /** Sound to play each time we fire */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+    USoundBase* FireSound;
 
-	/** Gun muzzle's offset from the characters location */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
-	FVector MuzzleOffset;
+    /** AnimMontage to play each time we fire */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+    UAnimMontage* FireAnimation;
 
-	/** Sets default values for this component's properties */
-	UTP_WeaponComponent();
+    /** Gun muzzle's offset from the characters location */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+    FVector MuzzleOffset;
 
-	/** Attaches the actor to a FirstPersonCharacter */
-	UFUNCTION(BlueprintCallable, Category="Weapon")
-	void AttachWeapon(AFPSCharacter* TargetCharacter);
+    /** Sets default values for this component's properties */
+    UTP_WeaponComponent();
 
-	/** Make the weapon Fire a Projectile */
-	UFUNCTION(BlueprintCallable, Category="Weapon")
-	void Fire();
+    /** Attaches the actor to a FirstPersonCharacter */
+    UFUNCTION(BlueprintCallable, Category = "Weapon")
+    void AttachWeapon(AFPSCharacter* TargetCharacter);
+
+    /** Make the weapon Fire a Projectile */
+    UFUNCTION(BlueprintCallable, Category = "Weapon")
+    void Fire();
 
 protected:
-	/** Ends gameplay for this component. */
-	UFUNCTION()
-	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
-		
+    /** Ends gameplay for this component. */
+    UFUNCTION()
+    virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 private:
-	/** The Character holding this weapon*/
-	AFPSCharacter* Character;
+    /** The Character holding this weapon*/
+    AFPSCharacter* Character;
 };
